@@ -1,7 +1,5 @@
 function myFunction() {
   
-  
-  
   ////  get data from Timesheets object_61
   function getFilesKnack(){
   var filesList=[]
