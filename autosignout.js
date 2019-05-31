@@ -9,8 +9,8 @@ function myFunction() {
   ///  Digger Collective Knack API
   var numOfResults=100; //max 1000
   var headers = {
-    'X-Knack-Application-Id': '5c73518ae5c38408560026f7', 
-    'X-Knack-REST-API-Key': '26ab6d50-38ac-11e9-ad75-655785f442f9'
+    'X-Knack-Application-Id': '5c7xxxxxxxxxxxxxxx', 
+    'X-Knack-REST-API-Key': '26xxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
   };
   
   var filters = { //Processed is No and logo is true
@@ -40,16 +40,14 @@ function myFunction() {
 }
   
   
-  
-  
   ////  get data from Staff object_5
   function getStaffFilesKnack(){
   var filesList=[]
   
   //var numOfResults=1 //max 1000
   var headers = {
-    'X-Knack-Application-Id': '5c73518ae5c38408560026f7', 
-    'X-Knack-REST-API-Key': '26ab6d50-38ac-11e9-ad75-655785f442f9'
+    'X-Knack-Application-Id': 'xxxxxxxxxxxxxxxxxx', 
+    'X-Knack-REST-API-Key': 'xyzxyzyxyxyxyyyyyyyyyyyyyyyyy'
   };
   
   var filters = { //Processed is No and logo is true
@@ -114,8 +112,6 @@ var knackStaffData = getStaffFilesKnack();
                        });
     }
     
-    
-    
    }
   
   //Logger.log(notSignedOut.length);
@@ -171,16 +167,7 @@ Logger.log( updateRecordsAppenate(knackStaffData.records[e].id, knackStaffData.r
     }
     Logger.log('__________________');
   }
-  
-  
-  
-  
-/// THIS 3 FUNCTIONS BELOW, updateKnack/updateAppenate
-// should be triggered together, as part of the same chain....  
-  
-  ////5c808f943ff771085e8e3f51 = TEST 4 staffID
-  
-//updateRecordsKnack('5c808f943ff771085e8e3f51');
+
 function updateRecordsKnack(id){ 
   var recordID= id;
 
@@ -188,20 +175,18 @@ function updateRecordsKnack(id){
     field_470: 'Signed Out'
   };
 
-
   var url        = 'https://api.knack.com/v1/objects/object_5/records/'+ recordID;  
   
   var params = {
     method: 'put', 
     headers : {
-      'X-Knack-Application-ID': '5c73518ae5c38408560026f7',
-      'X-Knack-REST-API-Key':'26ab6d50-38ac-11e9-ad75-655785f442f9',
+      'X-Knack-Application-ID': 'ID',
+      'X-Knack-REST-API-Key':'key',
       'content-type':'application/json'
     }, 
     payload: JSON.stringify(payload)
   }
-  
-  
+ 
   var response   = UrlFetchApp.fetch(url, params);   
   
   Logger.log(response);
@@ -226,8 +211,8 @@ function updateRecordsTimesheetKnack(id){
   var params = {
     method: 'put', 
     headers : {
-      'X-Knack-Application-ID': '5c73518ae5c38408560026f7',
-      'X-Knack-REST-API-Key':'26ab6d50-38ac-11e9-ad75-655785f442f9',
+      'X-Knack-Application-ID': 'ID',
+      'X-Knack-REST-API-Key':'Key',
       'content-type':'application/json'
     }, 
     payload: JSON.stringify(payload)
@@ -240,22 +225,18 @@ function updateRecordsTimesheetKnack(id){
   
   return response.getContentText();
 } 
+
   
-  
-  
-  
-//
-//updateRecordsAppenate('5c808f943ff771085e8e3f51');  
 function updateRecordsAppenate(id, name){ 
 
   var staffID = id.toString();
   var staffName = name;
   
   var body = {
-    "Id": "5033931b-8b46-49c9-910e-a9ff002eddbc", 
+    "Id": "fkkfkf", 
     "NewRows": [[staffID, name, 'Signed Out', '', '', 'Yes']],
-    "CompanyId": 55965,
-    "IntegrationKey": "cc9efe6abfc04bedb5a631c5bf4e6cf2"
+    "CompanyId": 2342,
+    "IntegrationKey": "fkf"
   };
   
   
@@ -265,7 +246,7 @@ function updateRecordsAppenate(id, name){
     'contentType' : 'application/json' 
   };
   
-  var url="https://manager.easyforms.co.nz:443/api/v2/datasource"
+  var url="https://manager.easyforms.co.nz:4fd/api/v2/datasource"
   var response=UrlFetchApp.fetch(url, options);
   Logger.log(response)  
 }
