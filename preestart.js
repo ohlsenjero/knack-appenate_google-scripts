@@ -1,6 +1,6 @@
 function myFunction() {
    
-  var rawSS = SpreadsheetApp.openById("16rp5z0iy2rZCVcBVzlZiAH3uQVoyUT2-oG3bNiI_u2I")
+  var rawSS = SpreadsheetApp.openById("16rp..............................")
   var rawSheet = rawSS.getSheetByName("Sheet1"); //loads sheet 1
   var rawData = rawSheet.getDataRange().getValues(); // gets all values in 2d array
  
@@ -64,8 +64,6 @@ function myFunction() {
 
          
     for(var i=0;i<atendees.length;i++){
-   
-
      
       Logger.log("ATENDEE :  " +atendees[i].staffID);
       Logger.log("JOB :  " +atendees[i].jobID);
@@ -89,12 +87,9 @@ function myFunction() {
      
      
       postCloseOfDay(atendees[i].staffID, atendees[i].jobID, atendees[i].supervisor, startTimePost);
-     
- 
+    
      
     }    
- 
- 
  
  
  
@@ -117,8 +112,8 @@ function myFunction() {
     var params = {
       method: 'post',
       headers : {
-        'X-Knack-Application-ID': '571015bcb799d9fc79e4741e',
-        'X-Knack-REST-API-Key':'907e7960-0291-11e6-a726-7de2e9f17f31',
+        'X-Knack-Application-ID': 'fhdjfhjdfhjdfhjdf',
+        'X-Knack-REST-API-Key':'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
         'content-type':'application/json'
       },
       payload: JSON.stringify(payload)
@@ -142,10 +137,10 @@ function myFunction() {
   var status= 'open';
  
   var body = {
-    "Id": "5033931b-8b46-49c9-910e-a9ff002eddbc",
+    "Id": "503393ddddddddddddd",
     "NewRows": [[staffID, name, 'Signed Out', '', '', 'Yes', '','', timeID]],
-    "CompanyId": 55965,
-    "IntegrationKey": "cc9efe6abfc04bedb5a631c5bf4e6cf2"
+    "CompanyId": 555555,
+    "IntegrationKey": "dfdfdfdfdfdfsssssss"
   };
  
  
@@ -155,32 +150,25 @@ function myFunction() {
     'contentType' : 'application/json'
   };
  
-  var url="https://manager.easyforms.co.nz:443/api/v2/datasource"
+  var url="https://manager.easyforms.co.nz:PORT/api/v2/datasource"
   var response=UrlFetchApp.fetch(url, options);
   Logger.log(response)  
 }
  
- 
- 
- 
- 
- 
- 
+
  
 //  
   for (var i = rawData.length; i>1; i--) {
     rawSheet.deleteRow(i);
   }
- 
- 
+
     /// > 1 !!!  because its working its way backwards from rawData.length
     ///                            which means length.1 == 0.
    
-    /// watch out with this!!  before it was deleting the first ROw also
+    /// watch out for this!!  before it was deleting the first ROw also
     // but then the next upload would fail
     // for some reason the first ever upload doesn't need it, but the next ones
     // will crash unless that first Row, with the Filed names, is there.
- 
 
  
 }
