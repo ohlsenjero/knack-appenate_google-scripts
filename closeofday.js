@@ -1,12 +1,11 @@
 function myFunction() {
    
-  var rawSS = SpreadsheetApp.openById("1ivv1r75J7Qk_extrYqTRAi9f-5eB50LlidpXXSuUj2A")
+  var rawSS = SpreadsheetApp.openById("1ivv1r75xxxxxRAi9f-RAi9f-RAi9f-")
   var rawSheet = rawSS.getSheetByName("Sheet1"); //loads sheet 1
   var rawData = rawSheet.getDataRange().getValues(); // gets all values in 2d array
   //Logger.log("RAW DATA = "+rawData);
   //Logger.log("RAW DATA.length = "+rawData.length);
   //Logger.log("RAW SHEET.length = "+rawSheet.length);
- 
  
   var recordID;
   var atendeesAllUnsorted = [];
@@ -24,34 +23,7 @@ function myFunction() {
     for(var i=1;i<rawData.length;i++){
 
       var currentLine=rawData[i];
-     
-     
-     
-      if(currentLine[rawHeaders.indexOf("jobSelect")] != ""){  
-        jobID = currentLine[rawHeaders.indexOf("jobSelect")];
-      }else if(currentLine[rawHeaders.indexOf("repJobID")] != ""){
-        jobID= currentLine[rawHeaders.indexOf("repJobID")];
-      }else{
-        jobID= jobID;
-      }
-     
-     
-         
-       
-         
-         
-         
-       
-       
-     
 
-     
-
-     
-     
-     
-     
-     
       if(rawData[0][rawHeaders.indexOf("photo")] == ""){
         photo = "";
       }else if(currentLine[rawHeaders.indexOf("photo")] != "" && i !=0){
@@ -107,16 +79,9 @@ function myFunction() {
          
           atendeesSep.push({staffID: currentLine[rawHeaders.indexOf("atendeeID")], endTime: endTimePost, jobID: jobID, photo:photo });
         }
-       
 
-       
-
-     
-     
-     
     }//FOR rawData
-   
-   
+
 
     for(var r = 0; r < atendeesAllUnsorted.length; r++){
       for(var k = 0; k < atendeesAllUnsorted[r].all.length; k++){
@@ -125,9 +90,8 @@ function myFunction() {
         //Logger.log("FFFFFFFFFFFFFFFFFFFFFFFFFF =  " + atendeesAllUnsorted[r].all[k]);
       }//FOR atendeesAllUnsorted[r].alll
     }//FOR atendeesAllUnsorted
+    
   }
-   
- 
  
  
   ///////////////////////////////////////
@@ -140,8 +104,8 @@ function myFunction() {
    
     //var numOfResults=1 //max 1000
     var headers = {
-      'X-Knack-Application-Id': '571015bcb799d9fc79e4741e',
-      'X-Knack-REST-API-Key': '907e7960-0291-11e6-a726-7de2e9f17f31'
+      'X-Knack-Application-Id': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+      'X-Knack-REST-API-Key': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     };
    
     var filters = {
@@ -261,8 +225,6 @@ function myFunction() {
 
  
  
- 
- 
   function postCloseOfDay(staffID, endTime, recordID, photoUpload){
    
     //Logger.log("recordID" + recordID);
@@ -280,8 +242,8 @@ function myFunction() {
     var params = {
       method: 'put',
       headers : {
-        'X-Knack-Application-ID': '571015bcb799d9fc79e4741e',
-        'X-Knack-REST-API-Key':'907e7960-0291-11e6-a726-7de2e9f17f31',
+        'X-Knack-Application-ID': 'xxxxxxxxxxxxxxxxxxxxxxxxxx',
+        'X-Knack-REST-API-Key':'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         'content-type':'application/json'
       },
       payload: JSON.stringify(payload)
